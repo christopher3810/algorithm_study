@@ -21,3 +21,14 @@
 #출력 예시
 3
 """
+# n의 값을 따라서 입력받은 값중에서 최솟값을 추출하고 그 최솟값중에서 가장 큰값을 리턴해주는 방식
+n, m = map(int, input().split())
+
+result = 0
+# 한 줄씩 입력받아 확인
+for i in range(n):
+    data = list(map(int, input().split()))
+    min_value = min(data)
+    result = max(result, min_value)
+
+print(result)
