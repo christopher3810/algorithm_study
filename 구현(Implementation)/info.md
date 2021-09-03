@@ -1,7 +1,8 @@
 
 ![Generic badge](https://img.shields.io/badge/-Algorithm_Study-5F00FF?style=flat&logo=Github)  
 ![Generic badge](https://img.shields.io/badge/-Section:_Implementation-0054FF?style=flat&logo=Algorithm)
-##구현
+
+## 구현
 ***
 
 - 구현이란 알고리즘을 소스코드로 바꾸는 과정
@@ -21,14 +22,14 @@
 - 해당 두가지 유형도 구현유형으로 묶어서 생각한다.
 
 ***
-###제약
+### 제약
 - 파이썬 리스트 크기
     - 메모리 제한 : 128 ~ 512MB 제한
     - 크기가 1000만 이상인 리스트가 있다면 메모리 용량 제한으로 문제를 풀 수 없게 되는 경우도 있다는 점을 기억
     
 
 ***
-###Pypy3
+### Pypy3
 - Pypy3는 파이썬3의 문법을 그대로 지원하며, 대부분 파이썬 3보다 실행속도가 빠르다.
 - Pypy3를 선택한다면 파이썬 3와 동일한 코드를 제출해서 실행 간을 줄일 수 있다.
 - 단 Pypy3를 지원할 경우에만
