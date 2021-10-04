@@ -10,5 +10,5 @@
 ***
 
 #### 그리디 알고리즘 문제 😈
-- sugar_deliver_boy(설탕 배달)
-- ATM
+- <a href ="https://github.com/christopher3810/algorithm_study/blob/master/%20Baekjoon_Online_Judge/greedy/sugar_delivery_boy.py">sugar_deliver_boy(설탕 배달)</a>
+- <a href ="https://github.com/christopher3810/algorithm_study/blob/master/%20Baekjoon_Online_Judge/greedy/ATM.py">ATM</a>
