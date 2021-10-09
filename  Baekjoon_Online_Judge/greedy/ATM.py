@@ -26,3 +26,27 @@
 첫째 줄에 각 사람이 돈을 인출하는데 필요한 시간의 합의 최솟값을 출력한다.
 
 """
+
+'''
+예시 3 1 4 3 2
+12345 순으로 뽑으면
+3 4 8 11 13 = 39
+25143 순으로 뽑으면
+1 3 6 9 13 = 32
+이말은 주어진 리스트 값을 정열을 시키라는 말같음
+줄을 서있는 사람의수 n과 각 사람이 돈을 인출하는데에 걸리는 시간p가 주어진다면 
+각 사람이 돈을 인출하는데 필요한 시간의 최솟값을 구하는 프로그램을 작성하시오
+'''
+# 초기코드
+n = int(input())
+p = sorted(map(int,input().split()))
+time = 0
+for index in range(n):
+    time += sum(p[:index+1])
+print(time)
+# 코드 길이 수정
+'''
+n = int(input())
+p = sorted(map(int,input().split()))
+print(sum(sum(p[0:i+1]) for i in range(n)))
+'''
