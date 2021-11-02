@@ -39,5 +39,20 @@ k개의 로프를 사용하여 중량이 w인 물체를 들어올릴 때, 각각
 6. 맨뒤 - 한계무게
 7. 맨뒤 앞 x2 - 한계무게
 8. 맨뒤 앞앞 x3 - 한계무게
-9 해당방식으로 한계무게 체크하는 방식으로 최대 버티는 무게를 확인한다
+9. 해당방식으로 한계무게 체크하는 방식으로 최대 버티는 무게를 확인한다
 '''
+'''
+n = int(input())
+r = sorted([int(input()) for _ in range(n)], reverse=True)
+m = 0
+for i, v in enumerate(r):
+    if m < (int(i)+1)*int(v):
+        m = (int(i)+1) * int(v)
+print(m)
+'''
+# 조금더 코드줄을 줄인 코드
+n = int(input())
+r = sorted([int(input()) for _ in range(n)], reverse=True)
+print(max(r[i] * (i + 1) for i in range(n)))
+
+# 전체 갯수에서 인덱스값과 리스트 인덱스값을 계산한것중 가장큰값을 바로 출력
