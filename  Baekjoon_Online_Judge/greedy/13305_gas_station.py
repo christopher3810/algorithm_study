@@ -52,4 +52,64 @@
 출력
 표준 출력으로 제일 왼쪽 도시에서 제일 오른쪽 도시로 가는 최소 비용을 출력한다.
 
+예시
+4
+2 3 1
+5 2 4 1
+
+4가지도시
+거리 2 3 1
+가격 5 2 4 1
+맨오른쪽 가격은 애초에 의미가 없고
+한동네에서 전부 주유를 해서 끝까지 갈수도 있다.
+결국엔 최솟 값을 매번 구하면된다 어떻게 ?
+
+거리리스트가 f[]
+가격리스트가 p[]
+1. p[i] * sum(f)
+2. t = f.pop
+3. p[i] * f[i] + p[i+1] * sum(f)
+
+p[i] * sum(f[i:])
+특정 주유 가격과 나머지 남은 거리를 계산하고
+한지역씩 이동하면서 계산한 값이 최소값이 나오도록진행
+하지만 잘 봐야하는것
+2 -(3)-> 1 -(4)> 2 -(5)-> 6
+1에서는 앞에 2 와 6은 의미가 없으므로
+p[i]를 고정값으로 둔뒤 뒤에 합산 값을 변경한다
 '''
+import sys
+n = int(sys.stdin.readline())
+f = list(map(int, input().split()))
+p = list(map(int, input().split()))
+t = 0
+e = []
+l = 0
+for i in range(n-1):
+    if i > 0:
+        if e[0] < t + (p[i] * sum(f[i:])):
+            e.pop()
+            e.append(t + (l * sum(f[i:])))
+            t += l * f[i]
+            continue
+        else:
+            e.pop()
+            e.append(t + (p[i] * sum(f[i:])))
+    else:
+        e.append(p[i] * sum(f))
+    t += p[i] * f[i]
+    l = p[i]
+print(e[0])
+
+
+# for i in range(len(p)-1):
+#     if i > 0:
+#         e = t + p[i] * sum(f)
+#     else:
+#         e = p[i] * sum(f)
+#         min = e
+#     if min > e:
+#         min = e
+#     t += p[i] * f[0]
+#     f.pop(0)
+# print(min)
