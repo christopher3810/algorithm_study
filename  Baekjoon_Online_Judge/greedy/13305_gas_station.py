@@ -66,50 +66,21 @@
 
 거리리스트가 f[]
 가격리스트가 p[]
-1. p[i] * sum(f)
-2. t = f.pop
-3. p[i] * f[i] + p[i+1] * sum(f)
+정말 해법은 간단하다
+가격이 가장 낮으면 거리만큼사고 높으면 안사면 된다.
+1. 단 첫마을에서는 무조건 다음마을 거리만큼 구매해준다
+2. 두번째 마을부터 m변수로 끝 마을까지 가장 저렴한 기름 가격을 유지한다
+3. 가장 저렴한 기름 가격인 m변수를 변경해 가면서 남은 거리를 계산해준다.
 
-p[i] * sum(f[i:])
-특정 주유 가격과 나머지 남은 거리를 계산하고
-한지역씩 이동하면서 계산한 값이 최소값이 나오도록진행
-하지만 잘 봐야하는것
-2 -(3)-> 1 -(4)> 2 -(5)-> 6
-1에서는 앞에 2 와 6은 의미가 없으므로
-p[i]를 고정값으로 둔뒤 뒤에 합산 값을 변경한다
 '''
 import sys
 n = int(sys.stdin.readline())
 f = list(map(int, input().split()))
 p = list(map(int, input().split()))
+m = p[0]
 t = 0
-e = []
-l = 0
 for i in range(n-1):
-    if i > 0:
-        if e[0] < t + (p[i] * sum(f[i:])):
-            e.pop()
-            e.append(t + (l * sum(f[i:])))
-            t += l * f[i]
-            continue
-        else:
-            e.pop()
-            e.append(t + (p[i] * sum(f[i:])))
-    else:
-        e.append(p[i] * sum(f))
-    t += p[i] * f[i]
-    l = p[i]
-print(e[0])
-
-
-# for i in range(len(p)-1):
-#     if i > 0:
-#         e = t + p[i] * sum(f)
-#     else:
-#         e = p[i] * sum(f)
-#         min = e
-#     if min > e:
-#         min = e
-#     t += p[i] * f[0]
-#     f.pop(0)
-# print(min)
+    if m > p[i]:
+        m = p[i]
+    t += m * f[i]
+print(t)
