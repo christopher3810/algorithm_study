@@ -44,18 +44,33 @@ d = 1
 '''
 
 import sys
-from pprint import pprint
-
 e = []
 d = {}
+m = 0
+n = 9
 for i in range(int(sys.stdin.readline())):
     e.append(list(map(str,input())))
 for i in range(len(e)):
-    for j in range(len(e[i])-1, -1, -1) :
+    for j in range(len(e[i])) :
         if e[i][j] in d:
             t = d[e[i][j]]
-            t += 10**j
-            d[e[i][j]] = t
+            t += 10**(len(e[i][j:])-1)
+            d[e[i][j]] = t #해당 딕셔너리에 값이 있다면 값을 수정하고 다시 딕셔너리에 값을 넣어주세요
         else:
-            d[e[i][j]] = 10**j
-pprint(d)
+            d[e[i][j]] = 10**(len(e[i][j:])-1) # 그게아니라면 해당 인덱스부터 끝까지의 길이만큼 10의 제곱
+d = sorted(d.values(), reverse=True) #딕셔너리를 큰값부터 다시 정렬해주고
+for i in d:
+    m += n * i #큰값부터 10의 제곱을 한값에다가 9부터 내려오면서 값을 넣어주세요
+    n -= 1
+print(m)#전부다 계산한 값을 출력하면 끝
+
+'''
+좀 많이 까다로웠던 문제
+중요 핵심
+1. 자리수별로 1000 100 10 1 과 같이 수를 더해서 해당수를 값으로 문자를 키로한 
+딕셔너리 형태의 데이터를 만들 수 있어야 함
+2. 시작 인덱스부터 끝 인덱스까지의 길이와 10** 제곱수로 자리수에 따라 100 1000등의 값을 부여
+3. 딕셔너리를 값으로 정렬시킬 수 있는지.
+4. 그리고 나면 나머지는 벨류값과 지정값을 곱해서 합산.
+
+'''
