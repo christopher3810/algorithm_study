@@ -20,4 +20,19 @@
 출력
 각 테스트 케이스에 대해서, 강산이가 캠핑장을 최대 며칠동안 사용할 수 있는지 예제 출력처럼 출력한다.
 
+생각정리
+1. divmod 를통해서 몫값과 나머지값을 계산한뒤 몫 * 가능일수 + 나머지 값이 가능 일수보다 클때 일수 / 나머지 값이 가능일수보다 작을떄 나머지 일수
+2. 0 0 0 을 받을떄 break
+
 '''
+c = 0;
+while(True):
+    l, p, v = map(int, input().split())
+    if l==0 and p==0 and v==0 :
+        break
+    c += 1
+    r = divmod(v,p)
+    if r[1] >= l:
+        print('Case '+str(c)+': ' + str(r[0]*l + l))
+    if r[1] < l:
+        print('Case ' + str(c) + ': ' + str(r[0] * l + r[1]))
