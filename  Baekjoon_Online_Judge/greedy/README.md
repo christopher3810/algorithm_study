@@ -23,5 +23,3 @@
 - <a href ="https://github.com/christopher3810/algorithm_study/blob/master/%20Baekjoon_Online_Judge/greedy/1339_alphabet_math.py">1339_단어 수학</a>
 - <a href ="https://github.com/christopher3810/algorithm_study/blob/master/%20Baekjoon_Online_Judge/greedy/1715_card_sort.py">1715_카드 정렬하기</a>
 - <a href ="https://github.com/christopher3810/algorithm_study/blob/master/%20Baekjoon_Online_Judge/greedy/4796_camping.py">4796_캠핑</a>
-- <
-- 
