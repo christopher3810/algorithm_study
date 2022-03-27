@@ -22,7 +22,7 @@ from math import ceil
 # 최소거리를 찾고 리스트에서 최소거리에 있는 인덱스를 찾아서 소팅해서 출력;;; 비효율적 ... 최대한 그냥 지역변수 사용해서 간단하게 짜자;;
 t = int(input())
 a = list(map(int, input().split()))
-aver = round(sum(a) / len(a))
+aver = int(sum(a) / len(a) + 0.5) #round 함수는 round_half_even 방식이어서 0 1 2 3 4 까지만 반올림 5는 내림 5이상이니까 반올림해야되는데 안해줌 그래서 0.5 더해서 int
 minValue = 2147000000
 totalList = []
 for index, value in enumerate(a) :
