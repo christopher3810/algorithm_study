@@ -12,8 +12,43 @@ OX 문제는 맞거나 틀린 두 경우의 답을 가지는 문제를 말한다
 0은 문제의 답이 틀린 경우이고, 1은 문제의 답이 맞는 경우이다.
 ▣ 출력설명
 첫째 줄에 입력에서 주어진 채점 결과에 대하여 가산점을 고려한 총 점수를 출력한다.
-▣ 입력예제 1
-10 1011100110
-▣ 출력예제 1 10
 
+▣ 입력예제
+10
+1011100110
+
+▣ 출력예제
+10
+
+'''
+
+
+def checkgrade(listn):
+    cnt = 0
+    for i in listn:
+        for index, value in enumerate(i):
+            cnt += index + 1
+    return cnt
+
+n = int(input())
+m = list(map(str, input().split())) #str list 로받고
+listN = "".join(m) #다시 string으로 변환
+if int(listN) > 0:
+    lista = listN.split('0')
+    print(checkgrade(lista))
+else:
+    print('0')
+
+'''
+n = int(input())
+m = list(map(int, input().split()))
+sum = 0
+cnt = 0
+for x in a:
+    if x==1 : 
+        cnt+=1 #가중치 줘서 푸는 예제 
+        sum += cnt
+    else : 
+        cnt = 0
+print(sum)
 '''
