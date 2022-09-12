@@ -1,4 +1,4 @@
-'''
+"""
 사과나무(다이아몬드)
 현수의 농장은 N*N 격자판으로 이루어져 있으며, 각 격자안에는 한 그루의 사과나무가 심어저 있다.
 N의 크기는 항상 홀수이다.
@@ -27,19 +27,43 @@ N의 크기는 항상 홀수이다.
 ▣ 출력예제
 379
 
+"""
+
+n = int(input())
+listN = [list(map(int, input().split())) for _ in range(n)]
+res = 0
+s = e = n // 2
+
+for i in range(n):
+    for j in range(s, e + 1):
+        res += listN[i][j]
+    if i < n // 2:
+        s -= 1
+        e += 1
+    else:
+        s += 1
+        e -= 1
+
+print(res);
 '''
 
 n = int(input())
 listN = [list(map(int, input().split())) for _ in range(n)]
+#고정으로 받는 입력
+
+
+# 중간 지점을 몫으로 받음 반복문의 경우 0부터 시작해서 몫으로만 받아도 충분
 middleFlagNum = n // 2
 res = 0
-s=e=n//2
+s=e=n//2 # 중간지점 플래그를 두개를 받음
 
 
-for i in range(n):
-    for j in range(s, e+1):
+for i in range(n): #반복문을 돔
+    for j in range(s, e+1): #중간값 돌고 끝
         res += n[i][j]
-    if i < n//2 : # for 문은 0부터 시작하니까 중간 값이 됨.
+# for 문은 0부터 시작하니까 첫바뀌때 중간값에서 -1 두번째 바퀴때 중간값에서 -2 ex) 5인경우 중간이 2 -> 1(첫바퀴), 1->0(두번째), 0-1(세번쨰), 1->2(네번쨰)
+# 다섯번째는 값의 증감이 의미가 없음 이미 연산처리는 다함 다섯번쨰 2 -> 3의 값의 증감은 후연산에 사용되지 않기 때문에 의미 없다.
+    if i < n//2 : 
         s-=1
         e+=1
     else: # 중간 값 넘어간 상황에서 값을 줄여줌
@@ -47,16 +71,5 @@ for i in range(n):
         e-=1
 
 
-'''
-
-3
-1 3 1
-
-5
-1 3 5 3 1
-3 234 12345 234 3
-
-7
-1 3 5 7 5 3 1
 
 '''
